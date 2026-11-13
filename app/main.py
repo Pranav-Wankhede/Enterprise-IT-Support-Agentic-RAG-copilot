@@ -15,13 +15,7 @@ init_db()
 
 
 app = FastAPI(title=settings.app_name, version="1.0.0")
-@app.on_event("startup")
-def startup_event():
-    try:
-        import subprocess
-        subprocess.run(["python", "ingest_sample_kb.py"])
-    except Exception as e:
-        print(f"Ingestion note: {e}")
+
 
 app.include_router(router)
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
