@@ -32,7 +32,7 @@ def get_embedding_dimension(model_name: str | None = None) -> int:
 def get_embeddings():
     global _embeddings
     if _embeddings is None:
-        model_name = settings.embedding_model or "all-minilm-l6-v2"
+        model_name = "all-MiniLM-L6-v2"
         # Using free local HuggingFace embeddings instead of OpenAI
         _embeddings = HuggingFaceEmbeddings(model_name=model_name)
     return _embeddings
